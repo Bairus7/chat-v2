@@ -1,0 +1,16 @@
+Locales['es'] = {
+  ['me_prefix'] = 'ME | %s ',
+  ['do_prefix'] = 'DO | %s ',
+  ['ooc_help'] = 'Tenga en cuenta un mensaje fuera del rol',
+  ['twt_help'] = 'Enviar un tweet',
+  ['anon_help'] = 'Mensaje en anonimo',
+  ['me_help'] = 'Acción personal',
+  ['do_help'] = 'Información del rol',
+  ['lspd_help'] = 'Enviar un anuncio',
+  ['taxi_help'] = 'Enviar un anuncio',
+  ['mecanico_help'] = 'Enviar un anuncio',
+  ['ems_help'] = 'Enviar un anuncio',
+  ['priv_help'] = 'Mensaje privado',
+  ['generic_argument_name'] = 'Mensaje',
+  ['generic_argument_help'] = 'El mensaje',
+}
