@@ -57,14 +57,27 @@ RegisterCommand('twt', function(source, args, rawCommand)
     })
 end, false)
 
-RegisterCommand('anon', function(source, args, rawCommand)
+RegisterCommand('anontweet', function(source, args, rawCommand)
     local playerName = GetPlayerName(source)
-	local msg = rawCommand:sub(6)
-	
+    local msg = rawCommand:sub(11)
+    local name = getIdentity(source)
+    fal = name.firstname .. " " .. name.lastname
     TriggerClientEvent('chat:addMessage', -1, {
-        template = '<div style="padding: 0.5vw; margin: 0.5vw; background-color: rgb(255, 0, 0); border-radius: 3px;"><i class="fab fa-twitter"></i> @Anonimo:<br> {1}</div>',
+        template = '<div style="padding: 0.5vw; margin: 0.5vw; background-color: rgba(28, 160, 242, 0.6); border-radius: 3px;"><i class="fab fa-twitter"></i> @ANONIMO:<br> {1}</div>',
         args = { fal, msg }
     })
+	
+	TriggerEvent("es:getPlayers", function(pl)
+		for k,v in pairs(pl) do
+			TriggerEvent("es:getPlayerFromId", k, function(user)
+				if(user.getPermissions() > 0 and k ~= source)then
+					TriggerClientEvent('chat:addMessage', k, {
+						args = {"^3EL ANONIMO ES", " (^7" .. GetPlayerName(source) .." | "..source.."^0) " .. table.concat(args, " ")}
+					})
+				end
+			end)
+		end
+	end)
 end, false)
 
 --- Rol Entorno
@@ -104,25 +117,7 @@ RegisterCommand('gc', function(source, args, rawCommand)
 	
 	if xPlayer.job.name == 'police' then
 		local playerName = GetPlayerName(source)
-		local msg = rawCommand:sub(5)
-		local name = getIdentity(source)
-
-		fal = name.firstname .. " " .. name.lastname
-		TriggerClientEvent('chat:addMessage', -1, {
-			template = '<div style="padding: 0.5vw; margin: 0.5vw; background-color: rgb(0, 79, 252); border-radius: 6px;"><i class="fas fa-shield-alt"></i> [CNP INFORMA] {0}:<br> {1}</div>',
-			args = { fal, msg }
-		})
-	else
-		print('No eres un oficial de policía')
-	end
-end, false)
-
-RegisterCommand('gc', function(source, args, rawCommand)
-	local xPlayer = ESX.GetPlayerFromId(source)
-	
-	if xPlayer.job.name == 'gc' then
-		local playerName = GetPlayerName(source)
-		local msg = rawCommand:sub(5)
+		local msg = rawCommand:sub(3)
 		local name = getIdentity(source)
 
 		fal = name.firstname .. " " .. name.lastname
@@ -165,7 +160,7 @@ RegisterCommand('mecanico', function(source, args, rawCommand)
 
 		fal = name.firstname .. " " .. name.lastname
 		TriggerClientEvent('chat:addMessage', -1, {
-			template = '<div style="padding: 0.5vw; margin: 0.5vw; background-color: rgb(116 , 116, 116); border-radius: 6px;"><i class="fas fa-car-battery"></i> [MECANICO] {0}:<br> {1}</div>',
+			template = '<div style="padding: 0.5vw; margin: 0.5vw; background-color: rgb(212, 0, 255); border-radius: 6px;"><i class="fas fa-car-battery"></i> [MECANICO] {0}:<br> {1}</div>',
 			args = { fal, msg }
 		})
 	else
@@ -183,7 +178,7 @@ RegisterCommand('ems', function(source, args, rawCommand)
 
 		fal = name.firstname .. " " .. name.lastname
 		TriggerClientEvent('chat:addMessage', -1, {
-			template = '<div style="padding: 0.5vw; margin: 0.5vw; background-color: rgb(117, 18, 134); border-radius: 6px;"><i class="fas fa-medkit"></i> [EMS] {0}:<br> {1}</div>',
+			template = '<div style="padding: 0.5vw; margin: 0.5vw; background-color: rgb(255, 0, 0); border-radius: 6px;"><i class="fas fa-medkit"></i> [EMS] {0}:<br> {1}</div>',
 			args = { fal, msg }
 		})
 	else
