@@ -1,0 +1,18 @@
+# esx_rpchat
+
+#### Description
+This is a proximity chat script. With some commands like Twitter, OOC, Local Me, Local Do, GC or CNP chat, Mechanic chat, EMS chat, Priv chat, and more.
+
+## Download & Installation
+
+### Manually
+- Download https://github.com/Bairus7/chat-v2/tree/main/esx_rpchat
+- Put it in the `[gameplay]` directory
+
+## Installation
+- Add `ensure esx_rpchat` to your server.cfg
+
+# Legal
+### License
+esx_rpchat - RP chat for ESX
+Copyright (C) 2020-2021 Bairus7
